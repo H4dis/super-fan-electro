@@ -168,10 +168,12 @@ bearing-fault-diagnosis/
 │ 
 │   ├── 02_Feature_Engineering.ipynb
 │ 
-│
 ├── data/
-│   ├── raw/
-│   └── processed/
+│   ├── raw/                    
+│   │   ├── DataSetbearing-failure.csv
+│   │   └── Star_test.csv
+│   └── processed/                    
+│       └── submission.csv
 │
 ├── models/
 │   └── ensemble_model.pkl
