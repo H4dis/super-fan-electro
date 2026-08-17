@@ -124,16 +124,6 @@ pip install -r requirements.txt
 ```bash
 
 ---
-## 🚀 Usage
-
-| Command | Description |
-|---------|-------------|
-| `python src/train.py --train data/raw/DataSetbearing-failure.csv` | Train model on dataset |
-| `python src/predict.py --test data/raw/Star_test.csv --output submission.csv` | Predict on test data |
-| `jupyter notebook notebooks/03_Model_Training.ipynb` | Run training notebook |
-
----
-
 ## 📊 Results
 
 ### 📈 Confusion Matrix
