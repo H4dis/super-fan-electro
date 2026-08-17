@@ -121,52 +121,107 @@ venv\Scripts\activate  # Windows
 # Install dependencies
 pip install -r requirements.txt
 
----
-## 📊 Results
+🚀 Usage
+Command	Description
+python src/train.py --train data/raw/DataSetbearing-failure.csv	Train model on dataset
+python src/predict.py --test data/raw/Star_test.csv --output submission.csv	Predict on test data
+jupyter notebook notebooks/03_Model_Training.ipynb	Run training notebook
+📊 Results
+📈 Confusion Matrix
+Actual \ Predicted	Class 0	Class 1	Class 2
+Class 0	140	10	20
+Class 1	13	136	16
+Class 2	8	15	82
+🏆 Feature Importance (Top 10)
+Rank	Feature	Importance
+1	COMP_NAME	1558.0
+2	MP_LOC	859.0
+3	Acc, Rms (RMS)	821.0
+4	Crest (RMS)	695.0
+5	Crest_Factor	651.0
+6	Vel, Rms (RMS)	633.0
+7	Early_Fault_Index	605.0
+8	Kurt (RMS)	599.0
+9	Acc_to_Vel_Ratio	598.0
+10	Kurtosis_x_Acc	592.0
+📊 Performance Metrics
+Metric	Score
+F1-Score	89.46% 🏆
+Precision	89.11%
+Recall	89.96%
+Accuracy	89.72%
+📋 Per-Class Performance
+Class	Precision	Recall	F1-Score	Support
+Class 0 (Healthy)	93.33%	87.50%	90.32%	160
+Class 1 (Severe Fault)	89.47%	91.28%	90.37%	149
+Class 2 (Mild Fault)	84.54%	91.11%	87.70%	90
 
-### 📈 Confusion Matrix
+📁 Project Structure
+text
+bearing-fault-diagnosis/
+├── README.md
+├── requirements.txt
+├── LICENSE
+├── .gitignore
+│
+├── src/
+│   ├── train.py
+│   ├── predict.py
+│   ├── features.py
+│   └── utils.py
+│
+├── notebooks/
+│   ├── 01_EDA.ipynb
+│   ├── 02_Feature_Engineering.ipynb
+│   └── 03_Model_Training.ipynb
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── models/
+│   └── ensemble_model.pkl
+│
+└── docs/
+    ├── technical_report.pdf
+    └── presentation.pptx
+🧰 Technologies Used
+Category	Tools
+Language	Python 3.10
+Data Processing	Pandas, NumPy
+Machine Learning	Scikit-learn, LightGBM, XGBoost
+Hyperparameter Tuning	GridSearchCV
+Visualization	Matplotlib, Seaborn
+Version Control	Git, GitHub
+⚠️ Challenges & Solutions
+Challenge	Solution
+Overfitting (Train 100%)	Strong regularization (reg_alpha=2.0, reg_lambda=2.0)
+Missing Values	Imputation with train mean (not dropping rows)
+Imbalanced Classes	Class weighting {0:1.0, 1:1.4, 2:2.5}
+Different Test Row Count	Imputation instead of row deletion
+Too Many Features	SelectKBest → reduce to 20 features
+Scale Sensitivity	RobustScaler (resistant to outliers)
+🤝 Contributing
+Fork the repository
 
-| Actual \ Predicted | Class 0 | Class 1 | Class 2 |
-|--------------------|---------|---------|---------|
-| **Class 0** | 140 | 10 | 20 |
-| **Class 1** | 13 | 136 | 16 |
-| **Class 2** | 8 | 15 | 82 |
+Create your feature branch (git checkout -b feature/AmazingFeature)
 
----
+Commit your changes (git commit -m 'Add some amazing feature')
 
-### 🏆 Feature Importance (Top 10)
+Push to the branch (git push origin feature/AmazingFeature)
 
-| Rank | Feature | Importance |
-|------|---------|------------|
-| 1 | **COMP_NAME** | 1558.0 |
-| 2 | **MP_LOC** | 859.0 |
-| 3 | **Acc, Rms (RMS)** | 821.0 |
-| 4 | **Crest (RMS)** | 695.0 |
-| 5 | **Crest_Factor** | 651.0 |
-| 6 | **Vel, Rms (RMS)** | 633.0 |
-| 7 | **Early_Fault_Index** | 605.0 |
-| 8 | **Kurt (RMS)** | 599.0 |
-| 9 | **Acc_to_Vel_Ratio** | 598.0 |
-| 10 | **Kurtosis_x_Acc** | 592.0 |
+Open a Pull Request
 
----
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-### 📊 Performance Metrics
+📧 Contact
+Email: h4disem0radi@gmail.com
 
-| Metric | Score |
-|--------|-------|
-| **F1-Score** | **89.46%** 🏆 |
-| **Precision** | 89.11% |
-| **Recall** | 89.96% |
-| **Accuracy** | 89.72% |
+LinkedIn: Your LinkedIn Profile
 
----
+🙏 Acknowledgments
+Competition organizers for providing the dataset
 
-### 📋 Per-Class Performance
-
-| Class | Precision | Recall | F1-Score | Support |
-|-------|-----------|--------|----------|---------|
-| **Class 0 (Healthy)** | 93.33% | 87.50% | **90.32%** | 160 |
-| **Class 1 (Severe Fault)** | 89.47% | 91.28% | **90.37%** | 149 |
-| **Class 2 (Mild Fault)** | 84.54% | 91.11% | **87.70%** | 90 |
+Scikit-learn, LightGBM, and XGBoost communities
 
