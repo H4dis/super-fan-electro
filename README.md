@@ -61,3 +61,64 @@ The system combines:
 ---
 
 ## 🏗️ Architecture
+┌─────────────────────────────────────────────────────────────┐
+│ Raw Data (8 features) │
+└─────────────────────────┬───────────────────────────────────┘
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ Feature Engineering │
+│ • Ratios (4) • Fault Indicators (3) │
+│ • Log Transforms (6) • Interactions (3) │
+│ • Group Z-Score (6) │
+└─────────────────────────┬───────────────────────────────────┘
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ Feature Selection (SelectKBest → 20) │
+└─────────────────────────┬───────────────────────────────────┘
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ Scaling (RobustScaler) │
+└─────────────────────────┬───────────────────────────────────┘
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ Ensemble Training │
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
+│ │ LightGBM │ │ XGBoost │ │ExtraTrees│ │RandomForest│ │
+│ └────┬─────┘ └────┬─────┘ └────┬─────┘ └────┬─────┘ │
+│ └─────────────┴─────────────┴─────────────┘ │
+│ ▼ │
+│ ┌─────────────────────┐ │
+│ │ Weighted Voting (Ensemble) │ │
+│ └─────────────────────┘ │
+└─────────────────────────┬───────────────────────────────────┘
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ Hybrid Routing (KNN + Ensemble) │
+│ • Small groups (≤10) → KNN │
+│ • Large groups (>10) → Ensemble │
+└─────────────────────────┬───────────────────────────────────┘
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ Prediction │
+└─────────────────────────────────────────────────────────────┘
+
+text
+
+---
+
+## 🛠️ Installation
+
+```bash
+# Clone repository
+git clone https://github.com/yourusername/bearing-fault-diagnosis.git
+cd bearing-fault-diagnosis
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or
+venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
