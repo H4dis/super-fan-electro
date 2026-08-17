@@ -121,8 +121,7 @@ venv\Scripts\activate  # Windows
 
 # Install dependencies
 pip install -r requirements.txt
----
-
+```bash
 ## 🚀 Usage
 
 | Command | Description |
@@ -180,3 +179,4 @@ pip install -r requirements.txt
 | **Class 0 (Healthy)** | 93.33% | 87.50% | **90.32%** | 160 |
 | **Class 1 (Severe Fault)** | 89.47% | 91.28% | **90.37%** | 149 |
 | **Class 2 (Mild Fault)** | 84.54% | 91.11% | **87.70%** | 90 |
+
