@@ -164,16 +164,10 @@ bearing-fault-diagnosis/
 ├── LICENSE
 ├── .gitignore
 │
-├── src/
-│   ├── train.py
-│   ├── predict.py
-│   ├── features.py
-│   └── utils.py
-│
 ├── notebooks/
-│   ├── 01_EDA.ipynb
+│ 
 │   ├── 02_Feature_Engineering.ipynb
-│   └── 03_Model_Training.ipynb
+│ 
 │
 ├── data/
 │   ├── raw/
@@ -184,7 +178,7 @@ bearing-fault-diagnosis/
 │
 └── docs/
     ├── technical_report.pdf
-    └── presentation.pptx
+   
 🧰 Technologies Used
 Category	Tools
 Language	Python 3.10
