@@ -214,7 +214,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 📧 Contact
 Email: h4disem0radi@gmail.com
 
-LinkedIn: Your LinkedIn Profile
+LinkedIn: https://lnkd.in/p/er9tf7Kg
+🐢paper report : https://dev.to/h4dis/bearing-fault-diagnosis-multi-layer-intelligent-vibration-analysis-pipeline-cmc
 
 🙏 Acknowledgments
 Competition organizers for providing the dataset
